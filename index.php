@@ -27,27 +27,24 @@
 
 		<!-- Choose League -->
 		<div id="choose-league" class="section row">
-	       <div class="col-md-4">
+	       <div class="col-md-4 league">
 				<img id="liga" src="img/liga-logo.png" alt="La Liga" data-abbreviation="esp.1">
 		   </div>
-	       <div class="col-md-4">
+	       <div class="col-md-4 league">
 	       		<img id="premier" src="img/premier-logo.png" alt="Premier League" data-abbreviation="eng.1">
-	       </div>
-	       <div class="col-md-4">
-	       		<img id="pliga" src="img/ligap-logo.png" alt="Liga Portuguesa" data-abbreviation="por.1">
 	       </div>
 	    </div>	
 	
+		<img id="loader" class="hide" src="img/loader.gif">
+	
 		<!-- Choose Team -->
-		<div id="choose-team" class="section">
-	       	
-	    </div>
+		<div id="choose-team" class="section hide"></div>
 	
 	
     </div>
 
 	<script src="js/jquery-2.0.3.min.js"></script>
-	<script src="js/api.js"></script>
+	<script src="js/espn.js"></script>
 
   </body>
 </html>

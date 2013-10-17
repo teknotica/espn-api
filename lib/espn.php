@@ -1,17 +1,22 @@
 <?php
-	
-	
+		
 	class espn {
 		
 		protected $api_uri = "http://api.espn.com/v1/sports/soccer/";
 		protected $api_key = "f6hmra974ye89xhemku9dawx";
 		
+		/**
+		*   Get league info list
+		*/	
 		function espn_get_league_info($league_abb) {			
 			$api_url = $this->api_uri . $league_abb . "?apikey=" . $this->api_key;			
 			$league_info = $this->espn_get($api_url);			
 			
 		}
 		
+		/**
+		*   Get league teams info list
+		*/
 		function espn_get_league_teams($league_abb) {
 			
 			$league_teams_info = array();
@@ -21,9 +26,11 @@
 			
 			// Generate markup to be sent by Ajax
 			return $this->espn_get_teams_markup($league_abb, $league_teams);
-			
 		}
-		
+				
+		/**
+		*   Get league teams grid markup
+		*/
 		function espn_get_teams_markup($league_abb, $teams) {
 
 			$rows = -1;
@@ -35,7 +42,7 @@
 				$id = $team["id"];
 				$abbreviation = strtolower($team["abbreviation"]);
 				$logo_src = "img/logos/{$league_abb}/{$abbreviation}" . ".png";
-				$table .= "<div class='col-md-3'><img src='{$logo_src}' width='100px' data-team-id='{$id}'></div>";
+				$table .= "<div class='col-md-3 team'><img src='{$logo_src}'data-team-id='{$id}'></div>";
 
 				if ($rows == 3) {
 				 	$table .= "</div>";
@@ -45,6 +52,9 @@
 			return $table;
 		}
 		
+		/**
+		*   Get json content from API uri and return array
+		*/
 		function espn_get($uri) {
 			return json_decode(file_get_contents($uri), true);
 		}

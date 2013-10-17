@@ -18,11 +18,11 @@ h4 {
   padding-bottom: 15px;
   background-color: #eee;
   border: 1px solid #ddd;
-  background-color: rgba(61, 124, 104, 0.15);
-  border: 1px solid rgba(61, 124, 109, 0.2);
+  background-color: rgba(141, 148, 146, 0.15);
+  border: 1px solid rgba(146, 160, 156, 0.2)
 }
 
-[class*="col-"]:hover {
+[class*="col-"]:hover, .selected {
 	background-color: rgba(124, 61, 86, 0.15);
 }
 
@@ -39,6 +39,8 @@ img {
 /* -----------------------------*/
 /* Custom CSS by Silvia*/
 /* -----------------------------*/
+.hide { display: none; }
+.show { display: block; }
 
 .section {
 	text-align: center;

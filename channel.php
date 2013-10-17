@@ -9,6 +9,8 @@
 	}
 	
 	switch ($action) {
+		
+		// Get selected league teams
 		case "get_league_teams":
 			$league_abbr = $_POST["league_abbr"];
 			echo $espn->espn_get_league_teams($league_abbr);
