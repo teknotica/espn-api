@@ -25,13 +25,29 @@
         <p class="lead">The perfect place to find what's happening with your favourite football team.</p>
       </div>
 
-      <hr>
+		<!-- Choose League -->
+		<div id="choose-league" class="section row">
+	       <div class="col-md-4">
+				<img id="liga" src="img/liga-logo.png" alt="La Liga" data-abbreviation="esp.1">
+		   </div>
+	       <div class="col-md-4">
+	       		<img id="premier" src="img/premier-logo.png" alt="Premier League" data-abbreviation="eng.1">
+	       </div>
+	       <div class="col-md-4">
+	       		<img id="pliga" src="img/ligap-logo.png" alt="Liga Portuguesa" data-abbreviation="por.1">
+	       </div>
+	    </div>	
+	
+		<!-- Choose Team -->
+		<div id="choose-team" class="section">
+	       	
+	    </div>
+	
+	
+    </div>
 
-    </div> <!-- /container -->
+	<script src="js/jquery-2.0.3.min.js"></script>
+	<script src="js/api.js"></script>
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
   </body>
 </html>

@@ -18,11 +18,34 @@ h4 {
   padding-bottom: 15px;
   background-color: #eee;
   border: 1px solid #ddd;
-  background-color: rgba(86,61,124,.15);
-  border: 1px solid rgba(86,61,124,.2);
+  background-color: rgba(61, 124, 104, 0.15);
+  border: 1px solid rgba(61, 124, 109, 0.2);
+}
+
+[class*="col-"]:hover {
+	background-color: rgba(124, 61, 86, 0.15);
 }
 
 hr {
   margin-top: 40px;
   margin-bottom: 40px;
 }
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* -----------------------------*/
+/* Custom CSS by Silvia*/
+/* -----------------------------*/
+
+.section {
+	text-align: center;
+}
+
+.section [class*="col-"] {
+	cursor: pointer;
+}
+
+#choose-team .row { margin-bottom: 0; }
