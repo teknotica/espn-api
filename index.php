@@ -27,6 +27,11 @@
 
 		<!-- Choose League -->
 		<div id="choose-league" class="section row">
+			
+			<div class="col-md-4 league">
+				<img id="champions" src="img/champions-logo.png" alt="Champions League" data-abbreviation="uefa.champions">
+		   </div>
+			
 	       <div class="col-md-4 league">
 				<img id="liga" src="img/liga-logo.png" alt="La Liga" data-abbreviation="esp.1">
 		   </div>

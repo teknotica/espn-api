@@ -42,7 +42,11 @@
 				$id = $team["id"];
 				$abbreviation = strtolower($team["abbreviation"]);
 				$logo_src = "img/logos/{$league_abb}/{$abbreviation}" . ".png";
-				$table .= "<div class='col-md-3 team'><img src='{$logo_src}'data-team-id='{$id}'></div>";
+				$color = $team['color'];
+				
+				$table .= "<div class='col-md-3 team' data-color='{$color}'>";
+				$table .= "<img src='{$logo_src}'data-team-id='{$id}'>";
+				$table .= "</div>";
 
 				if ($rows == 3) {
 				 	$table .= "</div>";
@@ -50,6 +54,44 @@
 				}
 			}
 			return $table;
+		}
+		
+		/**
+		*   Get team headlines markup
+		*/
+		function espn_get_headlines_markup($team_headlines) {
+			
+			$list = '<div class="row closed">';				
+			$list .= '<div class="headlines col-md-12">';
+			$list .= '<h2>Headlines</h2>';
+			
+			if (count($team_headlines) > 0) {				
+				$list .= '<ul>';
+				foreach ($team_headlines as $headline) {
+					$headline_link = $headline["links"]["web"]["href"];
+					$headline_text = $headline["headline"];
+					$list .= "<li><a href='{$headline_link}' target='_blank'>{$headline_text}</a></li>"; 
+				}
+				$list .= '<ul>';
+			}				
+			$list .= '</div></div>';				
+			return $list;
+		}
+		
+		/**
+		*   Get team headlines
+		*/
+		function espn_get_team_headlines($league_abb, $team_id) {
+			
+			$team_headlines = array();
+			$obj = array();
+			$api_url = $this->api_uri . $league_abb . "/teams/{$team_id}/news?apikey=" . $this->api_key;	
+			$team_headlines_info = $this->espn_get($api_url);
+			$team_headlines = $team_headlines_info["headlines"];
+			
+			$obj['team_id'] = $team_id;
+			$obj['markup'] = $this->espn_get_headlines_markup($team_headlines);
+			return json_encode($obj);
 		}
 		
 		/**

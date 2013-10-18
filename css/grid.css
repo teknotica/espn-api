@@ -1,6 +1,5 @@
 .container {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 15px;
 }
 
 h4 {
@@ -18,12 +17,16 @@ h4 {
   padding-bottom: 15px;
   background-color: #eee;
   border: 1px solid #ddd;
-  background-color: rgba(141, 148, 146, 0.15);
+  background-color: #CCC;
   border: 1px solid rgba(146, 160, 156, 0.2)
 }
 
-[class*="col-"]:hover, .selected {
-	background-color: rgba(124, 61, 86, 0.15);
+.selected {
+	background-color: #fbbd2c;
+}
+
+[class*="col-"]:hover {
+	background-color: #e2e2e2;
 }
 
 hr {
@@ -39,6 +42,16 @@ img {
 /* -----------------------------*/
 /* Custom CSS by Silvia*/
 /* -----------------------------*/
+
+ul, ul li {
+	margin: 0;
+	padding: 0;
+}
+
+ul li {
+	list-style: none;
+}
+
 .hide { display: none; }
 .show { display: block; }
 
@@ -51,3 +64,24 @@ img {
 }
 
 #choose-team .row { margin-bottom: 0; }
+
+.team { opacity: 0.6; }
+
+.headlines {	
+	text-align: left;
+	font-size: 21px;
+	padding-bottom: 35px;
+}
+
+.headlines, .headlines:hover {
+	background: #FFF;
+}
+
+.headlines a {
+	font-weight: 200;
+}
+
+.row.closed {
+	height: 0;
+	visibility: hidden;
+}

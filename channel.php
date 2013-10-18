@@ -15,6 +15,13 @@
 			$league_abbr = $_POST["league_abbr"];
 			echo $espn->espn_get_league_teams($league_abbr);
 		break;
+		
+		// Get team headlines
+		case "get_team_headlines":
+			$team_id = $_POST["team_id"];
+			$league_abbr = $_POST["league_abbr"];
+			echo $espn->espn_get_team_headlines($league_abbr, $team_id);
+		break;
 	}
 	
 ?>
