@@ -4,28 +4,35 @@ html, body {
 }
 
 .container {
- 	padding: 15px;
-	height: 100%; 
+ 	padding: 20px;
 	min-height: 100%;
 }
 
 h4 {
  	margin-top: 25px;
 }
+
 .row {
 	margin-bottom: 20px;
 }
+
 .row .row {
 	margin-top: 10px;
  	margin-bottom: 0;
 }
+
 [class*="col-"] {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	background-color: #eee;
 	border: 1px solid #ddd;
 	background-color: #CCC;
-	border: 1px solid rgba(146, 160, 156, 0.2)
+	border: 1px solid rgba(146, 160, 156, 0.2);
+	-webkit-transition: background-color 200ms linear;
+     -moz-transition: background-color 200ms linear;
+     -o-transition: background-color 200ms linear;
+     -ms-transition: background-color 200ms linear;
+     transition: background-color 200ms linear;
 }
 
 .selected {
@@ -50,6 +57,11 @@ img {
 /* Custom CSS by Silvia*/
 /* -----------------------------*/
 
+a:hover, a:focus {
+	color: #89C0FC;
+	text-decoration: none;
+}
+
 ul, ul li {
 	margin: 0;
 	padding: 0;
@@ -62,17 +74,25 @@ ul li {
 .hide { display: none; }
 .show { display: block; }
 
-.section {
-	text-align: center;
-}
-
-.section [class*="col-"] {
-	cursor: pointer;
-}
+.section { text-align: center; }
+.section [class*="col-"] { cursor: pointer; }
 
 #choose-team .row { margin-bottom: 0; }
 
-.team { opacity: 0.6; }
+.team span { 
+	display: block; 
+	color: #3D3636;
+	font-size: 16px;
+	visibility: hidden;
+}
+.team:hover span,
+.team.active span {
+	visibility: visible;
+}
+
+.team.active span {
+	color: #FFF;
+}
 
 .headlines {	
 	text-align: left;
@@ -80,14 +100,8 @@ ul li {
 	padding-bottom: 35px;
 	border: none;	
 }
-
-.headlines, .headlines:hover {
-	background: #FFF;
-}
-
-.headlines a {
-	font-weight: 200;
-}
+.headlines, .headlines:hover { background: #FFF; }
+.headlines a { font-weight: 200; }
 
 .row.closed {
 	height: 0;

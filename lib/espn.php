@@ -10,8 +10,7 @@
 		*/	
 		function espn_get_league_info($league_abb) {			
 			$api_url = $this->api_uri . $league_abb . "?apikey=" . $this->api_key;			
-			$league_info = $this->espn_get($api_url);			
-			
+			$league_info = $this->espn_get($api_url);		
 		}
 		
 		/**
@@ -39,13 +38,15 @@
 				$rows++;
 				if ($rows == 0) $table .= "<div class='row'>";
 
-				$id = $team["id"];
-				$abbreviation = strtolower($team["abbreviation"]);
-				$logo_src = "img/logos/{$league_abb}/{$abbreviation}" . ".png";
-				$color = $team['color'];
+				$team_id = $team["id"];
+				$team_abbreviation = strtolower($team["abbreviation"]);
+				$team_name = $team["location"];
+				$team_logo = "img/logos/{$league_abb}/{$team_abbreviation}" . ".png";
+				$team_color = $team['color'];
 				
-				$table .= "<div class='col-md-3 team' data-team-id='{$id}' data-color='{$color}'>";
-				$table .= "<img src='{$logo_src}'>";
+				$table .= "<div class='col-md-3 team' data-team-id='{$team_id}' data-color='{$team_color}'>";
+				$table .= "<img src='{$team_logo}'>";
+				$table .= "<span>{$team_name}</span>";
 				$table .= "</div>";
 
 				if ($rows == 3) {
@@ -85,9 +86,12 @@
 			$team_headlines = array();
 			$obj = array();
 			$api_url = $this->api_uri . $league_abb . "/teams/{$team_id}/news?apikey=" . $this->api_key;	
-			$team_headlines_info = $this->espn_get($api_url);
-			$team_headlines = $team_headlines_info["headlines"];
 			
+			$team_headlines_info = $this->espn_get($api_url);
+			// Return only first 6 headlines
+			$team_headlines = array_slice($team_headlines_info["headlines"], 0, 6);
+			
+			// Create object to transform to JSON string to be sent
 			$obj['team_id'] = $team_id;
 			$obj['markup'] = $this->espn_get_headlines_markup($team_headlines);
 			return json_encode($obj);

@@ -120,7 +120,7 @@ var api = {
 			var headlines_h	= 300; //$('.row.closed').outerHeight();
 
 			// Collapse and remove previous headlines
-			$('.row.open').animate({ height: 0 }).remove();
+			$('.row.open').fadeOut().animate({ height: '0' }, 300).remove();
 
 			// Animate headline row
 			$('.row.closed').css("visibility", "visible")
