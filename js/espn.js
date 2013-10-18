@@ -72,12 +72,21 @@ var api = {
 			// Add click even to team
 			$('#choose-team .team').click(function () {
 				
+				api.animateHeadlinesSection($(this).data("team-id"));
+				
+				// Remove active class to all teams
+				$('#choose-team .team').removeAttr("style").removeClass("active");
+
+				// Set background color
+				$(this).addClass("active").css({'background-color': '#' + $(this).data("color"), 'opacity': '1'});
+				
 				// Object to send in request
 				var data_obj = {  
 					action: 'get_team_headlines',
 					league_abbr: current_league,
-					team_id: $(this).find("img").data("team-id")
-				};							
+					team_id: $(this).data("team-id")
+				};					
+						
 				// Make request to server
 				api.makeRequest(data_obj);
 			});	
@@ -88,37 +97,40 @@ var api = {
 		printTeamHeadlines: function(data) {
 			
 			// Json to obj
-			var obj = JSON.parse(data);			
-			// Active team image
-			$team_img_clicked = $("[data-team-id='" + obj.team_id + "']");			
-			// Active team
-			$team_clicked = $team_img_clicked.parent('.team');
-			// Active team color
-			$team_color = $team_clicked.data("color");
+			var obj = JSON.parse(data);	
+			
+			// Remove loader
+			$(".headlines").find("#loader").remove();
+			$('.row.open').find("h2").after(obj.markup);
+		},
+		
+		// Animate Headlines section
+		animateHeadlinesSection: function(team_id) {
+			
+			$current_team = $('[data-team-id="' + team_id + '"]');
 			
 			// Add new row for headlines
-			var h = $team_img_clicked.parent(".team").parent(".row").after(obj.markup);		
+			var new_row = '<div class="row closed"><div class="headlines col-md-12">';				
+				new_row += '<h2>Headlines</h2><img id="loader" src="img/loader.gif">';
+				new_row += '</div></div>';
+			
+			$current_team.parent(".row").after(new_row);
+			
 			// Calculate headlines height for animation
 			var headlines_h	= 300; //$('.row.closed').outerHeight();
-			
+
 			// Collapse and remove previous headlines
 			$('.row.open').animate({ height: 0 }).remove();
-			
+
 			// Animate headline row
-			console.log(headlines_h);
-			$('.row.closed').css("visibility", "visible").animate({ height: headlines_h + 'px' }, 300).removeClass("closed").addClass('open');
-			
-			// Remove active class to all teams
-			$('#choose-team .team').removeAttr("style").removeClass("active");
-			
-			// Set background color
-			$team_clicked.addClass("active").css({'background-color': '#' + $team_color, 'opacity': '1'});
-			
+			$('.row.closed').css("visibility", "visible")
+			.animate({ height: headlines_h + 'px' }, 300)
+			.removeClass("closed").addClass('open');
+
 			// Add border top to headline panel
-			$('.row.open').css({'border-top': '3px solid #' + $team_color});
-			
-		}
-	
+			$('.row.open').css({'border-top': '3px solid #' + $current_team.data("color")});
+		}	
+		
 };
 
 

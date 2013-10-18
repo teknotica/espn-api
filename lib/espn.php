@@ -44,8 +44,8 @@
 				$logo_src = "img/logos/{$league_abb}/{$abbreviation}" . ".png";
 				$color = $team['color'];
 				
-				$table .= "<div class='col-md-3 team' data-color='{$color}'>";
-				$table .= "<img src='{$logo_src}'data-team-id='{$id}'>";
+				$table .= "<div class='col-md-3 team' data-team-id='{$id}' data-color='{$color}'>";
+				$table .= "<img src='{$logo_src}'>";
 				$table .= "</div>";
 
 				if ($rows == 3) {
@@ -61,10 +61,7 @@
 		*/
 		function espn_get_headlines_markup($team_headlines) {
 			
-			$list = '<div class="row closed">';				
-			$list .= '<div class="headlines col-md-12">';
-			$list .= '<h2>Headlines</h2>';
-			
+			$list = "";
 			if (count($team_headlines) > 0) {				
 				$list .= '<ul>';
 				foreach ($team_headlines as $headline) {
@@ -73,8 +70,10 @@
 					$list .= "<li><a href='{$headline_link}' target='_blank'>{$headline_text}</a></li>"; 
 				}
 				$list .= '<ul>';
-			}				
-			$list .= '</div></div>';				
+			} else {
+				$list = "<p>There are no news for this team</p>";
+			}		
+			
 			return $list;
 		}
 		
