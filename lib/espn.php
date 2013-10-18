@@ -29,7 +29,7 @@
 		}
 				
 		/**
-		*   Get league teams grid markup
+		*   Get league teams grid markup string
 		*/
 		function espn_get_teams_markup($league_abb, $teams) {
 
@@ -57,7 +57,7 @@
 		}
 		
 		/**
-		*   Get team headlines markup
+		*   Get team headlines markup string
 		*/
 		function espn_get_headlines_markup($team_headlines) {
 			
@@ -79,7 +79,7 @@
 		}
 		
 		/**
-		*   Get team headlines
+		*   Get team headlines and return json string
 		*/
 		function espn_get_team_headlines($league_abb, $team_id) {
 			
@@ -97,7 +97,7 @@
 		/**
 		*   Get json content from API uri and return array
 		*/
-		function espn_get($uri) {
+		private function espn_get($uri) {
 			return json_decode(file_get_contents($uri), true);
 		}
 		

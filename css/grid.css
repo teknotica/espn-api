@@ -1,3 +1,4 @@
+
 .container {
   padding: 15px;
 }
@@ -22,10 +23,11 @@ h4 {
 }
 
 .selected {
-	background-color: #fbbd2c;
+	background-color: #FAFAFA;
 }
 
-[class*="col-"]:hover {
+#choose-league [class*="col-"]:not(.selected):hover,
+#choose-team div.team:hover {
 	background-color: #e2e2e2;
 }
 
@@ -71,6 +73,7 @@ ul li {
 	text-align: left;
 	font-size: 21px;
 	padding-bottom: 35px;
+	border: none;	
 }
 
 .headlines, .headlines:hover {
