@@ -20,9 +20,10 @@
   <body>
     <div class="container">
 
-      <div class="page-header">
+      <div class="page-header">	
         <h1>Football Hub</h1>
         <p class="lead">The perfect place to find what's happening with your favourite football team.</p>
+		<a id="espn-logo" href="http://espn.go.com/" target="_blank" title="ESPN Go website">Built with the ESPN API</a>
       </div>
 
 		<!-- Choose League -->

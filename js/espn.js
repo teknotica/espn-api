@@ -78,7 +78,7 @@ var api = {
 				$('#choose-team .team').removeAttr("style").removeClass("active");
 
 				// Set background color
-				$(this).addClass("active").css({'background-color': '#' + $(this).data("color"), 'opacity': '1'});
+				$(this).addClass("active").css({'background-color': '#' + $(this).data("color")});
 				
 				// Object to send in request
 				var data_obj = {  

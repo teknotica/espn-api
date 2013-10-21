@@ -33,6 +33,7 @@
 		function espn_get_teams_markup($league_abb, $teams) {
 
 			$rows = -1;
+			$table = "";
 			foreach ($teams as $team) {
 
 				$rows++;

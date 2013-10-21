@@ -22,10 +22,7 @@ h4 {
 }
 
 [class*="col-"] {
-	padding-top: 15px;
-	padding-bottom: 15px;
-	background-color: #eee;
-	border: 1px solid #ddd;
+	padding: 15px 0;
 	background-color: #CCC;
 	border: 1px solid rgba(146, 160, 156, 0.2);
 	-webkit-transition: background-color 200ms linear;
@@ -39,9 +36,17 @@ h4 {
 	background-color: #FAFAFA;
 }
 
-#choose-league [class*="col-"]:not(.selected):hover,
-#choose-team div.team:not(.active):hover {
-	background-color: #e2e2e2;
+#choose-league {
+	margin-bottom: 40px;
+}
+
+#choose-league [class*="col-"]:not(.selected),
+.team {
+	opacity: 0.6;
+}
+
+#choose-league [class*="col-"]:not(.selected):hover {
+	opacity: 1;
 }
 
 hr {
@@ -56,6 +61,10 @@ img {
 /* -----------------------------*/
 /* Custom CSS by Silvia*/
 /* -----------------------------*/
+
+p {
+	font-weight: 300;
+}
 
 a:hover, a:focus {
 	color: #89C0FC;
@@ -74,20 +83,38 @@ ul li {
 .hide { display: none; }
 .show { display: block; }
 
+.page-header { position: relative; }
+#espn-logo {
+	display: block;
+	background: url("../img/espn-api-black.png");
+	width: 150px;
+	height: 47px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-indent: -9999px;
+}
+#espn-logo:hover {
+	background: url("../img/espn-api-silver.png");
+}
+
 .section { text-align: center; }
 .section [class*="col-"] { cursor: pointer; }
 
 #choose-team .row { margin-bottom: 0; }
 
+.team.active, .team:hover { opacity: 0.8; }
 .team span { 
 	display: block; 
 	color: #3D3636;
 	font-size: 16px;
 	visibility: hidden;
+	opacity: 0;
 }
 .team:hover span,
 .team.active span {
 	visibility: visible;
+	opacity: 0.8;
 }
 
 .team.active span {
@@ -106,4 +133,13 @@ ul li {
 .row.closed {
 	height: 0;
 	visibility: hidden;
+}
+
+
+/**
+*  Media Queries
+*
+**/
+@media all (max-width: 1000px) {
+	
 }
