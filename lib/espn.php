@@ -3,7 +3,7 @@
 	class espn {
 		
 		protected $api_uri = "http://api.espn.com/v1/sports/soccer/";
-		protected $api_key = "f6hmra974ye89xhemku9dawx";
+		protected $api_key = "YOUR_KEY_HERE";
 		
 		/**
 		*   Get league info list
